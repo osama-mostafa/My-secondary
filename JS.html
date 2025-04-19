@@ -1,0 +1,112 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    
+    <button type = "button" onclick="document.getElementById('spong').src= './asset/img/spong.gif'">change</button>
+    <img id="spong" src="https://art.pixilart.com/9356715c5db01aa.gif" width="10%" alt="img">
+    <button type="button" onclick="document.getElementById('spong').src ='https:/art.pixilart.com/9356715c5db01aa.gif'">retrive</button>
+<hr/>
+    <button type="button_color" class="Mycolor" onclick="document.getElementById('Osama').innerHTML = 'Osama' ">Osama</button>
+    <p id="Osama" style="color: blue;">Osama & Mostafa</p>
+    <button type="button_color" onclick="document.getElementById('Osama').innerHTML = 'Mostafa' ">Mostafa</button>
+
+    <button type="button" onclick = 'Myfungshion()' >color</button>
+    <script>
+        function Myfungshion() {
+            document.getElementById("Osama").style.color = "red"
+        }
+    </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and Table Example</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- النموذج لإدخال البيانات -->
+    <h2>إدخال بيانات المستخدم</h2>
+    <form id="dataForm">
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="age">العمر:</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <button type="submit">إضافة</button>
+    </form>
+
+    <!-- جدول لعرض البيانات -->
+    <h2>جدول البيانات المدخلة</h2>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>الاسم</th>
+                <th>العمر</th>
+                <th>البريد الإلكتروني</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        // الحصول على عناصر النموذج والجدول
+        var form = document.getElementById('dataForm');
+        var table = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+
+        // إضافة حدث عند إرسال النموذج
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إرسال النموذج بالطريقة التقليدية
+
+            // الحصول على القيم من الحقول
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var email = document.getElementById('email').value;
+
+            // إنشاء صف جديد في الجدول
+            var newRow = table.insertRow();
+
+            // إضافة البيانات إلى خلايا الصف
+            var nameCell = newRow.insertCell(0);
+            var ageCell = newRow.insertCell(1);
+            var emailCell = newRow.insertCell(2);
+
+            // إدخال البيانات إلى الخلايا
+            nameCell.textContent = name;
+            ageCell.textContent = age;
+            emailCell.textContent = email;
+
+            // مسح الحقول بعد الإدخال
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
